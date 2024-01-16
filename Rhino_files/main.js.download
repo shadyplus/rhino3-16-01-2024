@@ -1,0 +1,12 @@
+var d = new Date();
+var month = d.getMonth()+1;
+var day = d.getDate();
+var output = day - 0 + '.' + ((''+month).length<2 ? '0' : '') + month + '.' + d.getFullYear();
+document.getElementById('date1').innerHTML = output;
+
+
+var d2 = new Date();
+var month2 = d2.getMonth()+1;
+var day2 = d2.getDate();
+var output2 = day2 - 7 + '.' + ((''+month2).length<2 ? '0' : '') + month2 + '.' + d2.getFullYear();
+document.getElementById('date2').innerHTML = output2;
